@@ -1,31 +1,21 @@
 import random
 
-computer = random.choice([-1,0,1])
-uc = input("Enter your choice: ")
-dic = {"s": 1, "w" : -1, "g" : 0}
-rev = {1 : "Snake", -1 : "Water", 0 : "Gun"}
+def rock_paper_scissors():
+    choices = ['Rock', 'Paper', 'Scissors']
+    computer_choice = random.choice(choices)
 
-you = dic[uc]
+    print("Welcome to Rock-Paper-Scissors!")
+    player_choice = input("Enter your choice (Rock, Paper, Scissors): ")
 
-print(f"you chose {you} \ncomputer choice {rev[computer]}")
+    print(f"You chose {player_choice}, Computer chose {computer_choice}")
 
-
-if(computer==you):
-    print("IT'S A DRAW, TRY ONCE MORE")
-    
-else:
-    if(computer==-1 and you==1):
-        print("you win")
-    elif(computer==-1 and you==0):
-        print("you lose")
-    elif(computer==1 and you==-1):
-        print("you lose")
-    elif(computer==1 and you==0):
-        print("you win")
-    elif(computer==0 and you==-1):
-        print("you win")
-    elif(computer==0 and you==1):
-        print("you lose")
-        
+    if player_choice == computer_choice:
+        print("It's a draw!")
+    elif (player_choice == 'Rock' and computer_choice == 'Scissors') or \
+         (player_choice == 'Scissors' and computer_choice == 'Paper') or \
+         (player_choice == 'Paper' and computer_choice == 'Rock'):
+        print("You win!")
     else:
-        print("SOMETHING WENT WRONG")
+        print("You lose!")
+
+rock_paper_scissors()
